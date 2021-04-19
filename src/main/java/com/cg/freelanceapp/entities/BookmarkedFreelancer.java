@@ -2,11 +2,14 @@ package com.cg.freelanceapp.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class BookmarkedFreelancer {
+	
+	@Id
 	private Long id;
 	private Skill skill;
 	private Freelancer freelancer;
