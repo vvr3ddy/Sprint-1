@@ -5,16 +5,24 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class BookmarkedFreelancer {
-	
+
 	@Id
+	@SequenceGenerator(name = "bkdFr_seq", initialValue = 1001)
 	private Long id;
+
+	@OneToOne(cascade = CascadeType.ALL)
 	private Skill skill;
+
+	@OneToOne(cascade = CascadeType.ALL)
 	private Freelancer freelancer;
+
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "recruiter_id")
+	@JoinColumn(name="recruiter_id")
 	private Recruiter bookmarkedBy;
 
 	public BookmarkedFreelancer() {
